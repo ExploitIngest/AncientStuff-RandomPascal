@@ -1,0 +1,84 @@
+Program My_Little_Ditty;
+   uses crt,graph,graphx;
+
+Procedure Music1;
+   var cntr: integer;
+   Begin
+      for cntr:= 1 to 4 do
+        Begin
+           sound(290);
+           delay(500);
+           sound(196);
+           delay(500);
+           sound(220);
+           delay(250);
+           sound(277);
+           delay(250);
+           sound(294);
+           delay(250);
+           sound(330);
+           delay(250);
+        end;
+      sound(466);
+      delay(1000);
+      sound(392);
+      delay(1000);
+      sound(330);
+      delay(1000);
+   end;
+
+Procedure Music2;
+   var cntr: integer;
+   Begin
+     for cntr:= 1 to 8 do
+        Begin
+           sound(440);
+           delay(125);
+           sound(587);
+           delay(125);
+           sound(440);
+           delay(125);
+           sound(659);
+           delay(125);
+           sound(440);
+           delay(125);
+           sound(698);
+           delay(125);
+           sound(440);
+           delay(125);
+           sound(659);
+           delay(125);
+         end;
+   sound(440);
+   delay(125);
+   sound(587);
+   delay(1000);
+   sound(262);
+   delay(500);
+   sound(294);
+   delay(500);
+   sound(350);
+   delay(500);
+   sound(523);
+   delay(500);
+   sound(392);
+   delay(500);
+   sound(466);
+   delay(500);
+   sound(440);
+   delay(500);
+   sound(466);
+   delay(500);
+   sound(659);
+   delay(1500);
+   sound(165);
+   delay(1000);
+   sound(185);
+   delay(2000);
+   end;
+
+begin
+   music1;
+   music2;
+   nosound;
+end.

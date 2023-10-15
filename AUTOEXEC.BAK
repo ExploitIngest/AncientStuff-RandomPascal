@@ -1,0 +1,15 @@
+@echo off
+cls
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo                             (1) Rename
+echo.
+echo                             (2) Copy
+echo.
+echo                             (3) Delete
+echo.
+echo                             (4) Turbo

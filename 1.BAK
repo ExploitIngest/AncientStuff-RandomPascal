@@ -1,0 +1,2 @@
+@ echo off
+Rename Test.pas Renamed.pas

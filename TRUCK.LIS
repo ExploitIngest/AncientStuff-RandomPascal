@@ -1,0 +1,65 @@
+KENNY'S KAREL COMPILER   Ver. 5 -- Program Listing of TRUCK.PAS
+   written by Kenny Chern    20 February 1987
+
+    1 :  Program Animate; 
+    2 :     uses crt; 
+    3 :     var i, x: integer; 
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character ":" -- ignored.
+    4 :     begin 
+    5 :     x := 1; 
+*** M - Misplaced character ":" -- ignored.
+*** M - Misplaced character "=" -- ignored.
+    6 :     for i := 1 to 76 do 
+*** M - Misplaced character ":" -- ignored.
+*** M - Misplaced character "=" -- ignored.
+    7 :      begin 
+    8 :      textbackground(white); 
+    9 :      clrscr; 
+   10 :      textcolor(red); 
+   11 :      x := x+1; 
+*** M - Misplaced character ":" -- ignored.
+*** M - Misplaced character "=" -- ignored.
+*** M - Misplaced character "+" -- ignored.
+   12 :      gotoxy(x,10); 
+*** M - Misplaced character "," -- ignored.
+   13 :      writeln(#177,#177,#177,#220); 
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+   14 :      gotoxy(x,11); 
+*** M - Misplaced character "," -- ignored.
+   15 :      writeln(#111,#0,#0,#111); 
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+   16 :      delay(100); 
+   17 :      gotoxy(x,10); 
+*** M - Misplaced character "," -- ignored.
+   18 :      writeln(#0,#0,#0); 
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+   19 :      gotoxy(x,11); 
+*** M - Misplaced character "," -- ignored.
+   20 :      writeln(#0,#0,#0); 
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+*** M - Misplaced character "," -- ignored.
+*** M - Misplaced character "#" -- ignored.
+   21 :    end; {for i} 
+   22 :  end. 
+*** M - Misplaced character "." -- ignored.
+*** F - Premature End-Of-File
+** Fatal Error - Compilation Halted **

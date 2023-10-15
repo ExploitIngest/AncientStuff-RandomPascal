@@ -1,0 +1,83 @@
+{Jason Mills
+3-27-96
+Description:  This program will read a file of integers and order the integers
+              from lowest to highest.  It will also give the lowest, middle,
+              and highest numbers in the given set of data.}
+
+Program Arrays;
+   uses crt;
+   type list = array[1..20] of integer;
+
+   Procedure Readfile(var num: list; var listsize: integer);
+      var data: text;
+      Begin
+         listsize:= 0;
+         assign(data,'LIST.TXT');
+         reset(data);
+         while not eof(data) do
+            begin
+               inc(listsize);
+               readln(data,num[listsize]);
+            end;
+      end;
+
+   Procedure Switch(var first,second: integer);
+      var hold: integer;
+         Begin
+            Hold:=first;
+            first:=second;
+            second:=hold;
+         end;
+
+   Procedure Sort(var num: list; var listsize: integer);
+      var inner: integer;
+      var outer: integer;
+      Begin
+        for outer:= 1 to listsize-1 do
+           Begin
+              for inner:= 1 to listsize-1 do
+                If num[inner] > num[inner+1] then
+                   switch(num[inner],num[inner+1]);
+           end;
+      end;
+
+   Procedure Mid(var listsize, listsize2: integer; num: list);
+      Begin
+         listsize2:= trunc(listsize/2);
+         writeln('Here is the middle value:  ',num[listsize2]);
+      end;
+
+   Procedure Output(var num: list; var listsize,listsize2: integer);
+      Begin
+         writeln('Here is the minimum value:  ',num[1]);
+         Mid(listsize,listsize2,num);
+         writeln('Here is the maxiumum value:  ',num[listsize]);
+      end;
+
+    Procedure print(num:list; listsize:integer);
+      var i: integer;
+        begin
+          for i := 1 to listsize do
+             Begin
+               writeln(num[i]);
+             end;
+          writeln('Hit Enter');
+          readln;
+        end;
+
+   Procedure Main;
+   var num: list;
+   var listsize,listsize2,first,second: integer;
+      Begin
+         clrscr;
+         readfile(num,listsize);
+         Print(num,listsize);
+         sort(num,listsize);
+         Print(num,listsize);
+         output(num,listsize,listsize2);
+         readln;
+      end;
+
+begin{main}
+  main;
+end.{main}

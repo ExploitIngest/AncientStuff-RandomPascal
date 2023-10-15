@@ -1,0 +1,70 @@
+Jason Mills
+17
+12
+3.0
+Paul Mills
+689-2567
+
+Cliff Robinson
+18
+12
+4.0
+Arthur Robinson
+620-1754
+
+Jerusha Emerson
+17
+12
+3.5
+Candace Main Rush
+476-0950
+
+David Bendernagel
+17
+12
+3.2
+Bob Bendernagel
+476-8194
+
+Kevin Dubay
+17
+12
+2.5
+Martha Dubay
+860-2325
+
+Matt Arnet
+17
+12
+2.0
+Patricia Arnet
+689-2216
+
+Joe Siegenthaler
+17
+12
+1.0
+Sassy Siegenthaler
+435-3340
+
+Alex Saify
+17
+12
+3.0
+The Iron Sheik
+476-0364
+
+Jason Seriff
+18
+12
+2.6
+Tom Seriff
+476-6604
+
+Rohit Mittal
+18
+12
+3.9
+Shika Mittal
+620-5930
+

@@ -1,0 +1,33 @@
+Program Parse;
+   uses crt;
+
+   Procedure Spacecount(var data: text;ch : char; counter: integer);
+      Begin
+         clrscr;
+         Counter:= 0;
+         assign(data,'para.txt');
+         reset(data);
+         while not eof(data) do
+         begin
+            read(data,ch);
+            write(ch);
+            If ch = ' ' then
+              inc(counter);
+         end;
+         writeln;
+         writeln;
+         write('The number of spaces is:  ',counter,'!');
+         readln;
+      end;
+
+   Procedure Main;
+      Var Data: text;
+      Var ch: char;
+      Var counter: integer;
+      Begin
+         spacecount(data,ch,counter);
+      end;
+
+Begin{main}
+   Main;
+end.{main}

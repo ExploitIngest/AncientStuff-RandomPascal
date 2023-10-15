@@ -1,0 +1,33 @@
+KENNY'S KAREL COMPILER   Ver. 5 -- Program Listing of KRL1.PAS
+   written by Kenny Chern    20 February 1987
+
+    1 :  Beginning-of-Program 
+    2 :   Beginning-of-Program 
+*** M - END-OF-PROGRAM expected
+    2:     move;
+    3:     move;
+    4:     pickbeeper;
+    5:     move;
+    6:     turnleft;
+    7:     move;
+    8:     move;
+    9:     putbeeper;
+   10:     move;
+   11:     turnoff;
+   12:   End-of-Execution
+   13:  End-of-Program
+   14:  
+   15:  
+   16:  
+
+---------- Compilation Statistics ----------
+
+Number of lines processed: 17
+Length of code: 2
+Number of new instructions: 0
+BEGINNING-OF-EXECUTION location: 0
+
+Compilation Complete
+0 Warnings & 1 Minor errors
+Object code may produce unpredictable results due to errors
+Look at .LIS file for errors

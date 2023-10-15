@@ -1,0 +1,353 @@
+{Clifford G. Robinson
+ Jerusha C. Emerson
+ Jason B. Mills
+ 6-4-96
+ THE CHEESE ADVENTURE WITH MILFORD.}
+
+ Program the_cheese_adventure_with_milford;
+ uses crt,graph,graphx;
+
+ type iarray = array[1..30] of integer;
+      xarray = array[1..30] of char;
+
+ procedure title_screen;
+ var i,x : integer;
+ begin
+  clearviewport;
+  settextstyle(1,0,5);
+  for i := 1 to 3 do
+  begin
+  setcolor(i);
+  outtextxy(35,1,'THE CHEESE');
+  outtextxy(40,35,'ADVENTURE');
+  delay(500);
+  end;
+  settextstyle(2,0,4);
+  x := 200;
+  for i := 1 to 20 do
+  begin
+   setcolor(1);
+   x := x - 10;
+   outtextxy(x,90,'Produced by:');
+   outtextxy(x,100,'Clifford G. Robinson');
+   outtextxy(x,110,'Jerusha C. Emerson');
+   outtextxy(x,120,'Jason B. Mills');
+   setcolor(0);
+   outtextxy(x,90,'Produced by:');
+   outtextxy(x,100,'Clifford G. Robinson');
+   outtextxy(x,110,'Jerusha C. Emerson');
+   outtextxy(x,120,'Jason B. Mills');
+   end;
+  setcolor(1);
+  outtextxy(x,90,'Produced by:');
+  outtextxy(x,100,'Clifford G. Robinson');
+  outtextxy(x,110,'Jerusha C. Emerson');
+  outtextxy(x,120,'Jason B. Mills');
+  setcolor(3);
+  outtextxy(1,188,'PRESS [ENTER] TO CONTINUE');
+  settextstyle(2,0,4);
+  readln;
+ end;
+
+ procedure story;
+ begin
+  clearviewport;
+  setcolor(1);
+  outtextxy(140,1,'STORY');
+  setcolor(3);
+  outtextxy(1,9,'Milford was recently robbed of his entire cheese');
+  outtextxy(1,17,'collection, and unfortunately his insurance policy did');
+  outtextxy(1,25,'not cover for food theft (it also contained a');
+  outtextxy(1,33,'statement from his physician saying his cholesterol');
+  outtextxy(1,41,'level was too high.)  Milford is an elderly mouse and');
+  outtextxy(1,49,'His social security check will not allow him to pay');
+  outtextxy(1,57,'for the types of cheese he used to have.  He can only');
+  outtextxy(1,65,'afford swiss which he does not like because he busts');
+  outtextxy(1,73,'out into hives whenever he eats the stuff.  As a');
+  outtextxy(1,81,'friend of Milford, you must smuggle him various');
+  outtextxy(1,89,'cheeses from the factory.  Your source in the factory');
+  outtextxy(1,97,'has encrypted each of the cheeses which you are');
+  outtextxy(1,105,'forced to decipher in the form of a puzzle (he does');
+  outtextxy(1,113,'not trust you and thinks you are selling cheese on');
+  outtextxy(1,121,'the black market for a profit).  Decipher each cheese');
+  outtextxy(1,129,'and help your bud out before he dies of cheese');
+  outtextxy(1,137,'boredom and and/or allergic complications with swiss');
+  outtextxy(1,145,'cheese.');
+  outtextxy(1,188,'PRESS [ENTER] TO CONTINUE');
+  readln;
+  end;
+
+  procedure instructions(var level:integer);
+  var levelx : char;
+  begin
+  clearviewport;
+  setcolor(1);
+  outtextxy(117,1,'INSTRUCTIONS');
+  setcolor(3);
+  outtextxy(1,18,'Each letter on the top row or the keyboard corresponds');
+  outtextxy(1,27,'with a slice of cheese :');
+  outtextxy(1,36,'Q, W, E, R, T, Y, U, I, O, P, [, ]');
+  outtextxy(1,54,'Follow the order that the slices of cheese are shown');
+  outtextxy(1,63,'and copy that order. With an increase in stage or level');
+  outtextxy(1,72,'the difficulty will raise [# slices/# repetitions].');
+  setcolor(1);
+  outtextxy(85,90,'Please choose a level:');
+  setcolor(2);
+  outtextxy(80,105,'EASY/MEDIUM/HARD [e/m/h]');
+  setcolor(3);
+  levelx := readkey;
+  case levelx of
+  'e' : level := 1;
+  'm' : level := 2;
+  'h' : level := 3;
+  end;
+  if level > 4 then
+   instructions(level);
+ end;
+
+ procedure random_junk(pieces:integer;var randlistx:xarray);
+ var i:integer;
+     randlisti:iarray;
+ begin
+  for i := 1 to 30 do
+  begin
+   randlisti[i] := random(pieces);
+   case randlisti[i] of
+   0 : randlistx[i] := 'q';
+   1 : randlistx[i] := 'w';
+   2 : randlistx[i] := 'e';
+   3 : randlistx[i] := 'r';
+   4 : randlistx[i] := 't';
+   5 : randlistx[i] := 'y';
+   6 : randlistx[i] := 'u';
+   7 : randlistx[i] := 'i';
+   8 : randlistx[i] := 'o';
+   9 : randlistx[i] := 'p';
+   10 : randlistx[i] := '[';
+   11 : randlistx[i] := ']';
+   end;
+  end;
+ end;
+
+ procedure level_play(var stage,trials,lose:integer; randlistx:xarray);
+ var i,ii,iii:integer;
+     userinput:char;
+ begin
+  ii := 1;
+  iii := 1;
+  clearviewport;
+  for ii := 1 to trials do
+  begin
+   for i := 1 to iii do
+   begin
+    clearviewport;
+    outtextxy(1,1,randlistx[i]);
+    delay(200);
+    clearviewport;
+    delay(200);
+   end;
+   writeln;
+   for i := 1 to iii do
+   begin
+    userinput := readkey;
+    outtextxy(1,10,userinput);
+    delay(200);
+    clearviewport;
+    if userinput <> randlistx[i] then
+     begin
+      clearviewport;
+      outtextxy(1,1,'NO!');
+      ii := trials;
+      i := iii;
+      stage := 6;
+      lose := 1;
+      delay(200);
+     end;
+   end;
+   delay(200);
+   iii := iii + 1;
+  end;
+  stage := stage + 1;
+ end;
+
+ procedure easy(var stage,pieces,trials:integer; randlistx:xarray);
+ begin
+  clearviewport;
+   begin
+    case stage of
+    1 : begin
+    pieces := 4;
+    trials := 5;
+    end;
+    2 : begin
+    pieces := 4;
+    trials := 10;
+    end;
+    3 : begin
+    pieces := 4;
+    trials := 15;
+    end;
+    4 : begin
+    pieces := 8;
+    trials := 5;
+    end;
+    5 : begin
+    pieces := 8;
+    trials := 10;
+    end;
+    6 : begin
+    pieces := 8;
+    trials := 15;
+    end;
+    end;
+  end;
+ end;
+
+ procedure medium(var stage,pieces,trials:integer; randlistx:xarray);
+
+ begin
+  clearviewport;
+   begin
+    case stage of
+    1 : begin
+    pieces := 6;
+    trials := 5;
+    end;
+    2 : begin
+    pieces := 6;
+    trials := 10;
+    end;
+    3 : begin
+    pieces := 6;
+    trials := 15;
+    end;
+    4 : begin
+    pieces := 10;
+    trials := 5;
+    end;
+    5 : begin
+    pieces := 10;
+    trials := 10;
+    end;
+    6 : begin
+    pieces := 10;
+    trials := 15;
+    end;
+    end;
+  end;
+ end;
+
+ procedure hard(var stage,pieces,trials:integer; randlistx:xarray);
+ begin
+  clearviewport;
+   begin
+    case stage of
+    1 : begin
+    pieces := 8;
+    trials := 5;
+    end;
+    2 : begin
+    pieces := 8;
+    trials := 10;
+    end;
+    3 : begin
+    pieces := 8;
+    trials := 15;
+    end;
+    4 : begin
+    pieces := 12;
+    trials := 5;
+    end;
+    5 : begin
+    pieces := 12;
+    trials := 10;
+    end;
+    6 : begin
+    pieces := 12;
+    trials := 15;
+    end;
+    end;
+  end;
+ end;
+
+ procedure level_select(var level,stage,pieces,trials:integer; randlistx:xarray);
+ begin
+  case level of
+  1 : easy(stage,pieces,trials,randlistx);
+  2 : medium(stage,pieces,trials,randlistx);
+  3 : hard(stage,pieces,trials,randlistx)
+  end;
+ end;
+
+ procedure you_win_game;
+ begin
+ clearviewport;
+ outtextxy(1,1,'CONGRATULATIONS! YOU WON THE LEVEL!');
+ outtextxy(1,188,'PRESS [ENTER] TO CONTINUE');
+ readln;
+ end;
+
+ procedure you_lose;
+ begin
+ clearviewport;
+ outtextxy(1,1,'YOU LOSE');
+ readln;
+ end;
+
+ procedure main;
+ var level,stage,pieces,trials,lose:integer;
+     randlistx:xarray;
+     levelx,stagex:char;
+
+ begin
+  settextstyle(2,0,4);
+  setcolor(14);
+  stage := 1;
+  randomize;
+  title_screen;
+  story;
+  instructions(level);
+  while level <= 3 do
+  begin
+  while lose <> 1 do
+   begin
+    level_select(level,stage,pieces,trials,randlistx);
+     while stage <= 6 do
+     begin
+      case level of
+      1 : levelx := '1';
+      2 : levelx := '2';
+      3 : levelx := '3';
+      end;
+      case stage of
+      1 : stagex := '1';
+      2 : stagex := '2';
+      3 : stagex := '3';
+      4 : stagex := '4';
+      5 : stagex := '5';
+      6 : stagex := '6';
+      end;
+      clearviewport;
+      outtextxy(1,1,'LEVEL : ');outtextxy(50,1,levelx);
+      outtextxy(60,1,'STAGE : ');outtextxy(110,1,stagex);
+      outtextxy(1,188,'PRESS [ENTER] TO CONTINUE');
+      readln;
+      random_junk(pieces,randlistx);
+      level_select(level,stage,pieces,trials,randlistx);
+      level_play(stage,trials,lose,randlistx);
+     end;
+     level := level + 1;
+   end;
+   if lose = 1 then
+   begin
+    level := 4;
+    you_lose;
+    main;
+   end;
+   you_win_game;
+  end;
+ end;
+
+ begin
+  main;
+ end.
